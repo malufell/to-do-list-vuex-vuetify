@@ -1,6 +1,6 @@
 # vue-todo
 
-![image](https://user-images.githubusercontent.com/62160705/133854357-228e3676-7b6d-4190-9bc2-66bf98dff423.png)
+![image](https://user-images.githubusercontent.com/62160705/133854781-c41e8077-ba81-41a5-baed-1d5fd2df35a1.png)
 
 
 ## Project setup
