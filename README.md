@@ -1,5 +1,8 @@
 # vue-todo
 
+![image](https://user-images.githubusercontent.com/62160705/133854357-228e3676-7b6d-4190-9bc2-66bf98dff423.png)
+
+
 ## Project setup
 ```
 yarn install
