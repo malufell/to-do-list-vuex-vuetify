@@ -1,40 +1,56 @@
 <template>
   <div>
-    <v-dialog v-model="dialog" persistent max-width="290">
+    <v-dialog v-model="dialog" persistent max-width="350px">
       <v-card>
-        <v-card-title class="text-h5"> Editar tarefa </v-card-title>
+        <v-card-title>
+          <span class="text-h5">Editar Tarefa</span>
+        </v-card-title>
+        <v-card-text>
+          <v-container>
+            <v-row>
+              <v-col cols="12">
+                <v-text-field
+                  label="Nome da tarefa"
+                  prepend-icon="mdi-bullseye-arrow"
+                  v-model="task.title"
+                ></v-text-field>
+              </v-col>
 
-        <v-col cols="12">
-
-          <!-- campo de texto recebe o conteúdo atual da task para edição 
-          v-model recebe a info atual e tbm atualiza para a nova -->
-          <v-text-field 
-            label="Novo título" 
-            outlined
-            v-model="task.title"
-          ></v-text-field>
-
-        </v-col>
-
+              <v-col cols="12">
+                <v-menu
+                  v-model="menu"
+                  :close-on-content-click="false"
+                  :nudge-right="40"
+                  transition="scale-transition"
+                  offset-y
+                  min-width="auto"
+                >
+                  <template v-slot:activator="{ on, attrs }">
+                    <v-text-field
+                      v-model="task.date"
+                      label="Prazo"
+                      prepend-icon="mdi-calendar"
+                      v-bind="attrs"
+                      v-on="on"
+                    ></v-text-field>
+                  </template>
+                  <v-date-picker
+                    v-model="task.date"
+                    @input="menu = false"
+                  ></v-date-picker>
+                </v-menu>
+              </v-col>
+            </v-row>
+          </v-container>
+        </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
-
-          <v-btn 
-            color="red darken-1" 
-            text 
-            @click="$emit('closeModal')"
-          >
+          <v-btn color="blue darken-1" text @click="dialog = false">
             Cancelar
           </v-btn>
-
-          <v-btn 
-            color="primary darken-1" 
-            text 
-            @click="handleEdit"
-          >
+          <v-btn color="blue darken-1" text @click="handleEdit">
             Confirmar
           </v-btn>
-
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -42,20 +58,26 @@
 </template>
 
 <script>
-  export default {
-    props: ['task'],
-    data () {
-      return {
-        dialog: true,
-      }
-    },
+export default {
+  props: ["task"],
+  components: {},
+  data() {
+    return {
+      dialog: true,
+      menu: false,
+      date: "",
+    };
+  },
 
-    methods: {
-      //passa ao vuex o novo título para atualizar na lista e o id pra saber qual task atualizar
-      handleEdit() {
-        this.$store.dispatch('editTask', { title: this.task.title, id: this.task.id});
-        this.$emit('closeModal');
-      }
-    }
-  }
+  methods: {
+    handleEdit() {
+      this.$store.dispatch("editTask", {
+        title: this.task.title,
+        date: this.task.date,
+        id: this.task.id,
+      });
+      this.$emit("closeModal");
+    },
+  },
+};
 </script>

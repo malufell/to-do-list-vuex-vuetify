@@ -1,11 +1,14 @@
 import db from "../services/localbase"
 
+
+
 export default {
   //exemplo usando async await
-  async addTask({ commit }, title) {
+  async addTask({ commit }, { title, date }) {
     await db.collection('tasks').add({
       id: new Date().getTime(),
       title: title,
+      date: date,
       done: false
     });
 
@@ -15,7 +18,7 @@ export default {
   editTask({ commit }, newTask) {
     db.collection('tasks')
       .doc({ id: newTask.id })
-      .update({ title: newTask.title })
+      .update({ title: newTask.title, date: newTask.date })
       .then(() => commit('getTasks'))
   },
   
