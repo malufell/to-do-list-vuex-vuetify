@@ -31,15 +31,15 @@
   <div class="mt-5 ml-5">
     <h4>Como funciona:</h4>
     <div class="mt-3">
-     <ol>
-       <li>Usuário adiciona tarefas através do campo "Adicionar Tarefa";</li> 
-       <li>Ao pressionar "enter" a tarefa aparecerá na lista e ficará salva no navegador, através do Localbase;</li>
+     <ul>
+       <li>Usuário adiciona tarefas informando o Nome e o Prazo;</li> 
+       <li>Ao clicar em "adicionar" a tarefa aparecerá na lista e ficará salva no navegador, através do Localbase;</li>
        <li>Ao marcar o checkbox, a tarefa é considerada "concluída";</li>
-       <li>No menu de opções da tarefa, é possível editar ou excluir;</li>
-       <li>Edição e Exclusão são realizados através de modais :D </li>
+       <li>Tarefas concluídas aparecem em uma lista separada;</li>
+       <li>No menu de opções da tarefa, é possível editar ou excluir, através do uso de modais;</li>
        <li>Como os dados estão salvos no navegador, é possível recarregar a página que as informações não serão perdidas!</li>
 
-     </ol>
+     </ul>
   </div>
 
   </div>

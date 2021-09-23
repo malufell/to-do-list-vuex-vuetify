@@ -87,11 +87,11 @@ export default {
 
   computed: {
     filtersCompletedTasks() {
-      return this.$store.state.tasks.filter(task => task.done == true)
+      return this.$store.state.tasks.filter((task) => task.done == true);
     },
 
     filtersTasksInProgress() {
-      return this.$store.state.tasks.filter(task => task.done == false)
+      return this.$store.state.tasks.filter((task) => task.done == false);
     },
   },
 

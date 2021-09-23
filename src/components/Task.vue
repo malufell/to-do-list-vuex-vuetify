@@ -12,7 +12,7 @@
               ></v-checkbox>
             </v-list-item-action>
           </v-col>
-          <v-col cols="3">
+          <v-col cols="6">
             <v-list-item-content :class="{ 'blue-grey--text' :task.done }">
               <v-list-item-title
               >
@@ -20,7 +20,7 @@
               </v-list-item-title>
             </v-list-item-content>
           </v-col>
-          <v-col cols="3">
+          <v-col cols="2">
             <v-list-item-content :class="{ 'blue-grey--text' :task.done }">
               <v-list-item-title
               >
@@ -33,7 +33,12 @@
             <v-list-item-content>
               <v-list-item-title
               >
-                <v-chip  v-if="!task.done" color="secondary" outlined small> {{ calcDaysToEnd }}</v-chip>
+                <v-chip  v-if="!task.done" color="secondary" outlined small>
+                  <v-icon left>
+                    mdi-timer-sand
+                  </v-icon> 
+                  {{ calcDaysToEnd }}
+                  </v-chip>
               </v-list-item-title>
             </v-list-item-content>
           </v-col>
