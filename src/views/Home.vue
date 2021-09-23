@@ -39,7 +39,21 @@
       </v-col>
     </v-row>
 
-    <TaskList />
+
+    <v-subheader v-if="filtersTasksInProgress.length">
+      Tarefas em andamento:
+    </v-subheader>
+
+    <TaskList :tasks="filtersTasksInProgress"/>
+
+    <v-subheader 
+      v-if="filtersCompletedTasks.length" 
+      class="mt-5"
+    >
+      Tarefas concluídas:
+    </v-subheader>
+
+    <TaskList :tasks="filtersCompletedTasks"/>
 
     <center
       v-if="!$store.state.tasks.length"
@@ -69,6 +83,16 @@ export default {
 
   created() {
     this.$store.commit("getTasks");
+  },
+
+  computed: {
+    filtersCompletedTasks() {
+      return this.$store.state.tasks.filter(task => task.done == true)
+    },
+
+    filtersTasksInProgress() {
+      return this.$store.state.tasks.filter(task => task.done == false)
+    },
   },
 
   methods: {
