@@ -13,7 +13,7 @@
             </v-list-item-action>
           </v-col>
           <v-col cols="3">
-            <v-list-item-content>
+            <v-list-item-content :class="{ 'blue-grey--text' :task.done }">
               <v-list-item-title
               >
                 {{ task.title }}
@@ -21,7 +21,7 @@
             </v-list-item-content>
           </v-col>
           <v-col cols="3">
-            <v-list-item-content>
+            <v-list-item-content :class="{ 'blue-grey--text' :task.done }">
               <v-list-item-title
               >
                 {{ formatDateToDDMMYYYY }}
@@ -42,7 +42,14 @@
             <v-list-item-content>
               <v-list-item-title
               >
-                <v-chip small> {{ checkStatus }} </v-chip>
+
+                <v-chip 
+                  small
+                  :class=checkStatus.color
+                > 
+                  {{ checkStatus.text }} 
+                </v-chip>
+
               </v-list-item-title>
             </v-list-item-content>
           </v-col>
@@ -86,9 +93,9 @@ export default {
       let daysToEnd = parseInt((deadline - dateNow) / 1000 / 60 / 60 / 24 + 1);
       
       let status;
-      if (this.task.done) { status = 'concluído' }
-      if (daysToEnd >= 0 && !this.task.done) { status  = 'no prazo' }
-      if (daysToEnd < 0 && !this.task.done) { status  = 'atrasado' }
+      if (this.task.done) { status = { text: 'concluído', color: 'teal lighten-3' } }
+      if (daysToEnd >= 0 && !this.task.done) { status = { text: 'no prazo', color: 'blue lighten-3' } }
+      if (daysToEnd < 0 && !this.task.done) { status  = { text: 'atrasado', color: 'red accent-1' } }
       return status;
 
     },
