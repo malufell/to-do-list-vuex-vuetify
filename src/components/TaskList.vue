@@ -5,7 +5,30 @@
       @reorder="$event.apply(dataTasks)">
 
       <template v-slot:item="{ item, reorder }">
-        <drag :key="item.id" :data="item">
+        <drag :key="item.id" :data="item" v-if="!item.done">
+          <Task
+            style="background-color: white"
+            :style="reorder ? { borderLeft: '2px solid #1976D2', marginLeft: '-2px' } : {}"
+            :task="item"
+          />
+
+          <v-divider />
+        </drag>
+      </template>
+    </drop-list>
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+    <drop-list 
+      :items="dataTasks" 
+      @reorder="$event.apply(dataTasks)">
+
+      <template v-slot:item="{ item, reorder }">
+        <drag :key="item.id" :data="item" v-if="item.done">
           <Task
             style="background-color: white"
             :style="reorder ? { borderLeft: '2px solid #1976D2', marginLeft: '-2px' } : {}"
@@ -24,6 +47,8 @@ import { Drag, DropList } from "vue-easy-dnd";
 import Task from "../components/Task.vue";
 
 export default {
+
+  props: ['done'],
   components: {
     Drag,
     DropList,
