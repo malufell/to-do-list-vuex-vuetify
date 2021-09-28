@@ -41,10 +41,10 @@
                       v-on="on"
                     >
                       <v-icon left> mdi-timer-sand </v-icon>
-                      {{ calcDaysToEnd }}
+                      {{ calcDaysToEnd() }}
                     </v-chip>
                   </template>
-                  <span>{{ calcDaysToEnd }} dia(s) até o prazo</span>
+                  <span>{{ calcDaysToEnd() }} dia(s) até o prazo</span>
                 </v-tooltip>
               </v-list-item-title>
             </v-list-item-content>
@@ -81,25 +81,12 @@ export default {
   props: ["task"],
 
   computed: {
-    calcDaysToEnd() {
-      const dateNow = new Date().getTime();
-      const deadline = new Date(this.task.date).getTime();
-      let daysToEnd = parseInt((deadline - dateNow) / 1000 / 60 / 60 / 24 + 1);
-      if (daysToEnd < 0) {
-        daysToEnd = 0;
-      }
-      return daysToEnd;
-    },
-
     formatDateToDDMMYYYY() {
       return this.task.date.split("-").reverse().join("/");
     },
 
     checkStatus() {
-      const dateNow = new Date().getTime();
-      const deadline = new Date(this.task.date).getTime();
-      let daysToEnd = parseInt((deadline - dateNow) / 1000 / 60 / 60 / 24 + 1);
-
+      let daysToEnd = this.calcDaysToEnd();
       let status;
       if (this.task.done) {
         status = { text: "concluído", color: "teal lighten-3" };
@@ -112,6 +99,17 @@ export default {
       }
       return status;
     },
+  },
+
+  methods: {
+    calcDaysToEnd() {
+      const dateNow = new Date().getTime();
+      const deadline = new Date(this.task.date).getTime();
+      let daysToEnd = Math.ceil((deadline - dateNow) / 1000 / 60 / 60 / 24);
+      
+      if(daysToEnd >0 && daysToEnd <1) { daysToEnd = 1}
+      return (daysToEnd);
+    }
   },
 };
 </script>
