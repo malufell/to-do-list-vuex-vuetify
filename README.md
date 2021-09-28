@@ -3,6 +3,8 @@
 Aprendendo vuex e vuetify com esse projeto :green_heart: <br>
 O desafio era não utilizar CSS em nenhum ponto!
 
+- No ar em https://to-do-list-vuetify.netlify.app/ 
+
 ## Tecnologias utilizadas
 
 - Vuex
