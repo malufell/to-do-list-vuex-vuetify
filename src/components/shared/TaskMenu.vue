@@ -7,7 +7,7 @@
         <v-btn icon v-bind="attrs" v-on="on">
           <v-icon class="d-none d-md-flex">mdi-dots-vertical</v-icon>
           <v-chip small class="ma-2 d-flex d-sm-flex d-md-none" color="blue-grey" outlined>
-            <v-icon left>mdi-file-document-edit-outline</v-icon>
+            <v-icon class="text-body-2" left>mdi-file-document-edit-outline</v-icon>
             opções
           </v-chip>
         </v-btn>

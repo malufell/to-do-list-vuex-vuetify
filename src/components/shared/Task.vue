@@ -40,7 +40,7 @@
                       v-bind="attrs"
                       v-on="on"
                     >
-                      <v-icon left> mdi-timer-sand </v-icon>
+                      <v-icon class="text-body-2" left> mdi-timer-sand </v-icon>
                       {{ calcDaysToEnd() }}
                     </v-chip>
                   </template>
@@ -114,7 +114,7 @@
                             v-bind="attrs"
                             v-on="on"
                           >
-                            <v-icon left> mdi-timer-sand </v-icon>
+                            <v-icon class="text-body-2" left> mdi-timer-sand </v-icon>
                             {{ calcDaysToEnd() }}
                           </v-chip>
                         </template>
