@@ -20,7 +20,7 @@
 
 <script>
 import { Drag, DropList } from "vue-easy-dnd";
-import Task from "../components/Task.vue";
+import Task from "./Task.vue";
 
 export default {
   props: ["tasks"],

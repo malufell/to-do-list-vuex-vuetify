@@ -69,7 +69,7 @@
 </template>
 
 <script>
-import TaskList from "../components/TaskList.vue";
+import TaskList from "../components/shared/TaskList.vue";
 
 export default {
   components: {
@@ -103,7 +103,6 @@ export default {
     handleAddTask() {
       //recurso de validação do vue
       this.valid = this.$refs.form.validate();
-      console.log(this.valid);
 
       //dispatch dispara action do vuex
       if (this.valid) {
