@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- :done = retorna um booleano, true ou false. a cor blue será aplicada se for true! -->
-    <v-list-item>
+    <v-list-item class="d-none d-md-flex">
       <template v-slot:default="{}">
         <v-row>
           <v-col cols="1">
@@ -70,6 +70,72 @@
       </template>
     </v-list-item>
     <v-divider></v-divider>
+
+
+    <!-- task versão mobile -->
+    <div class="d-flex d-sm-flex d-md-none">
+      <template>
+        <v-container>
+          <v-row dense>
+            <v-col cols="12">
+
+              <v-card class="mx-auto py-2" color="grey lighten-5">
+
+                <div class="d-flex justify-space-between">
+
+                  <div class="d-flex flex-column">
+
+                    <div class="pl-2 d-flex align-center"> 
+                      <v-checkbox
+                        color="primary"
+                        @click="$store.dispatch('completeTask', task)"
+                        :input-value="task.done"
+                      ></v-checkbox>
+                      <span>{{ task.title }}</span>
+                    </div>
+
+                    <div class="d-flex justify-start ml-10">
+                      <TaskMenu :task="{ id: task.id, title: task.title, date: task.date }" />
+                    </div>
+
+                  </div>
+                  
+                  <div class="ma-2 d-flex flex-column justify-space-between">
+
+                    <div class="d-flex justify-center text-body-2">{{ formatDateToDDMMYYYY }}</div>
+                    <div class="d-flex justify-center my-2">
+                      <v-tooltip bottom>
+                        <template v-slot:activator="{ on, attrs }">
+                          <v-chip
+                            v-if="!task.done"
+                            color="secondary"
+                            outlined
+                            small
+                            v-bind="attrs"
+                            v-on="on"
+                          >
+                            <v-icon left> mdi-timer-sand </v-icon>
+                            {{ calcDaysToEnd() }}
+                          </v-chip>
+                        </template>
+                        <span>{{ calcDaysToEnd() }} dia(s) até o prazo</span>
+                      </v-tooltip>
+                    </div>
+
+                    <div class="d-flex justify-center">
+                      <v-chip small :class="checkStatus.color">
+                        {{ checkStatus.text }}
+                      </v-chip>
+                    </div>
+                  </div>
+
+                </div>
+              </v-card>
+            </v-col>
+          </v-row>
+        </v-container>
+      </template>
+    </div>
   </div>
 </template>
 
