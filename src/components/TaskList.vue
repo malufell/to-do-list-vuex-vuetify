@@ -12,7 +12,6 @@
             "
             :task="item"
           />
-          <v-divider />
         </drag>
       </template>
     </drop-list>
