@@ -1,48 +1,44 @@
 <template>
-<div>
-  <div class="mt-5 ml-5">
-    <h4>Tecnologias utilizadas no projeto:</h4>
-    <div class="mt-3">
-      <v-icon icon>mdi-check-circle-outline</v-icon>
-      <span class="pl-2">Vuetify</span>
+  <div>
+    <div class="mt-5 ml-5">
+      <p>
+        Oi, eu sou a <a href="https://github.com/malufell" class="text-decoration-none">Malu</a> e meu objetivo com esse projeto era aprender sobre Vuex e Vuetify <br>(por
+        isso decidi que o desafio era não adicionar diretamente estilo com CSS em nenhum ponto!).
+      </p>
+      <p>
+        Encontrei essa
+        <a class="text-decoration-none"
+          href="https://www.youtube.com/watch?v=fL2BAYzCIZs&list=PLygIEirBzJi6qaDltMN44zyVHjbqUa4e-"
+          >playlist boa demais do Yuri</a
+        >
+        e peguei os conceitos iniciais: cadastro, edição, exclusão, uso de modais!
+      </p>
+      <p>Então fui além implementando novas funcionalidades:</p>
+      <ul>
+        <li>Prazo para tarefa</li>
+        <li>Validação de dados no cadastro</li>
+        <li>Dias até o prazo</li>
+        <li>Status: no prazo, atrasado, concluído</li>
+        <li>
+          Dividi a exibição entre tarefas em andamento e tarefas concluídas
+        </li>
+        <li>Para mobile, a task é exibida em um card</li>
+      </ul>
     </div>
-    <div class="mt-3">
-      <v-icon icon>mdi-check-circle-outline</v-icon>
-      <span class="pl-2">Vuex</span>
-    </div>
-    <div class="mt-3">
-      <v-icon icon>mdi-check-circle-outline</v-icon>
-      <span class="pl-2">Vue Router</span>
-    </div>
-    <div class="mt-3">
-      <v-icon icon>mdi-check-circle-outline</v-icon>
-      <span class="pl-2">Localbase</span>
-    </div>
-    <div class="mt-3">
-      <v-icon icon>mdi-check-circle-outline</v-icon>
-      <span class="pl-2">Vue easy dnd (drag and drop - arrasta e solta) </span>
-    </div>
-    <div class="mt-3">
-      <v-icon icon>mdi-check-circle-outline</v-icon>
-      <span class="pl-2">Animate CSS </span>
+    <div class="mt-5 ml-5">
+      <h4>
+        <v-icon icon>mdi-tools</v-icon> Tecnologias utilizadas no projeto:
+      </h4>
+      <div class="mt-3">
+        <ul>
+          <li>Vuex</li>
+          <li>Vuetify</li>
+          <li>Vue Router</li>
+          <li>Vue easy dnd (drag and drop - arrasta e solta)</li>
+          <li>Localbase</li>
+          <li>Animate CSS </li>
+        </ul>
+      </div>
     </div>
   </div>
-
-  <div class="mt-5 ml-5">
-    <h4>Como funciona:</h4>
-    <div class="mt-3">
-     <ul>
-       <li>Usuário adiciona tarefas informando o Nome e o Prazo;</li> 
-       <li>Ao clicar em "adicionar" a tarefa aparecerá na lista e ficará salva no navegador, através do Localbase;</li>
-       <li>Ao marcar o checkbox, a tarefa é considerada "concluída";</li>
-       <li>Tarefas concluídas aparecem em uma lista separada;</li>
-       <li>No menu de opções da tarefa, é possível editar ou excluir, através do uso de modais;</li>
-       <li>Como os dados estão salvos no navegador, é possível recarregar a página que as informações não serão perdidas!</li>
-
-     </ul>
-  </div>
-
-  </div>
-  </div>
-
 </template>
